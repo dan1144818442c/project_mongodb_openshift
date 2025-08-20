@@ -1,8 +1,8 @@
 import pymongo
-
+import soldier
 class MongoLoad:
     def __init__(self,db):
-        self.mongodb = pymongo.MongoClient("mongodb://mongodb:27017")
+        self.mongodb = pymongo.MongoClient("mongodb://localhost:27017")
         self.db = self.mongodb[db]
 
     def create(self,collection_name):
@@ -24,10 +24,12 @@ class MongoLoad:
 
     def delete(self,collection,id):
         collection.delete_one({'id':id})
-        return
+        print("delete")
+        return {"delete" : "succses"}
 
-# a = MongoLoad("aaaa")
-# c = a.create("aaaa")
-# s= service.data_loader.soldier.Soldier("A" , "A" , "s" ,"D" )
+# a = MongoLoad("data")
+# c = a.create("soldier")
+# a.delete(c , 1)
+# a.delete(c , "1")
 #
-# print(a.build(c , s))
+#

@@ -1,7 +1,7 @@
 from fastapi import FastAPI ,Request
 from  soldier import Soldier
 from mongoDal import MongoLoad
-
+import uvicorn
 app = FastAPI(title="Data Loader API (MongoDB)")
 loader  =MongoLoad("data")
 col = loader.create("soldier")
@@ -31,5 +31,7 @@ async def delete_person(id):
 
 # if __name__ == "__main__":
 #
-#
 #     uvicorn.run(app, host="localhost", port=8000)
+#
+#
+
