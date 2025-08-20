@@ -4,8 +4,8 @@ metadata:
   name: data-loader
 spec:
   ports:
-    - port: 8080
-      targetPort: 8080
+    - port: 8000
+      targetPort: 8000
   selector:
     app: data-loader
   type: ClusterIP

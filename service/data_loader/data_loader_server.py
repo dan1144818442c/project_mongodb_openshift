@@ -1,6 +1,5 @@
 from fastapi import FastAPI ,Request
-import uvicorn
-from  service.data_loader import soldier
+from  soldier import Soldier
 from mongoDal import MongoLoad
 
 app = FastAPI(title="Data Loader API (MongoDB)")
@@ -14,7 +13,7 @@ async def get_data():
 
 @app.post("/soldiersDB/new_soldier")
 async def add_person(first , last , rank , phone ):
-    new_soldier = soldier.Soldier(first_name=first , last_name=last , rank=rank , phone_number=phone)
+    new_soldier = Soldier(first_name=first , last_name=last , rank=rank , phone_number=phone)
     return  loader.build(collection=col  , soldier=new_soldier)
 
 @app.put("/soldiersDB/update/{id}/{update_field}/{update_value}")
@@ -30,7 +29,7 @@ async def delete_person(id):
 #     return {"a"  : "200"}
 
 
-if __name__ == "__main__":
-
-
-    uvicorn.run(app, host="localhost", port=8000)
+# if __name__ == "__main__":
+#
+#
+#     uvicorn.run(app, host="localhost", port=8000)

@@ -1,11 +1,8 @@
 import pymongo
 
-import service.data_loader.soldier
-
-
 class MongoLoad:
     def __init__(self,db):
-        self.mongodb = pymongo.MongoClient("mongodb://localhost:27017")
+        self.mongodb = pymongo.MongoClient("mongodb://mongodb:27017")
         self.db = self.mongodb[db]
 
     def create(self,collection_name):
