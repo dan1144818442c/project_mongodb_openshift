@@ -1,6 +1,5 @@
 import pymongo
 
-import service.data_loader.soldier
 
 
 class MongoLoad:

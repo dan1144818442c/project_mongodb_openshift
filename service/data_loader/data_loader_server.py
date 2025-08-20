@@ -1,6 +1,6 @@
 from fastapi import FastAPI ,Request
 import uvicorn
-from  service.data_loader import soldier
+import soldier
 from mongoDal import MongoLoad
 
 app = FastAPI(title="Data Loader API (MongoDB)")
