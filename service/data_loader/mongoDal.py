@@ -7,16 +7,19 @@ class MongoLoad:
 
     def create(self,collection_name):
         col = self.db[collection_name]
-        print("creat good")
+        print("collection created")
         return col
 
     def build(self,collection,soldier):
-        document = soldier.get_dic_person()
+        document = soldier.get_dict_person()
         collection.insert_one(document)
-        print("build good")
+        print("document built")
 
     def get_info(self,collection):
-        return str(collection.find())
+        info = ''
+        for doc in collection.find():
+            info + str(doc)
+        return info
 
     def update(self,collection,id,update_field,update_value):
         new_value = {'$set': {update_field:update_value}}
@@ -26,8 +29,3 @@ class MongoLoad:
         collection.delete_one({'id':id})
         return
 
-# a = MongoLoad("aaaa")
-# c = a.create("aaaa")
-# s= service.data_loader.soldier.Soldier("A" , "A" , "s" ,"D" )
-#
-# print(a.build(c , s))
