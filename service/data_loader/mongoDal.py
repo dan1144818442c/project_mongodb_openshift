@@ -2,7 +2,8 @@ import pymongo
 import soldier
 class MongoLoad:
     def __init__(self,db):
-        self.mongodb = pymongo.MongoClient("mongodb://localhost:27017")
+        self.mongodb = pymongo.MongoClient("mongodb://mongodb:27017")
+        # self.mongodb = pymongo.MongoClient("mongodb://localhost:27017")
         self.db = self.mongodb[db]
 
     def create(self,collection_name):
@@ -27,9 +28,8 @@ class MongoLoad:
         print("delete")
         return {"delete" : "succses"}
 
-# a = MongoLoad("data")
-# c = a.create("soldier")
-# a.delete(c , 1)
-# a.delete(c , "1")
+# a = MongoLoad("aaaa")
+# c = a.create("aaaa")
+# a.d
 #
-#
+
